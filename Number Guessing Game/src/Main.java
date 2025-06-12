@@ -84,12 +84,11 @@ public class Main {
             int difference = number - guess;
             int range = (int) Math.pow(10,mode); //Kullanıcının sayıya yaklaştığını belirleme amaçlı zorluk moduna göre artan değişken
 
-            if (Math.abs(difference) <= range){ //Zorluk moduna göre, 10 veya 100 sayı yakınsa biraz uyarısı
+            if (Math.abs(difference) <= range){ //Zorluk moduna göre, 10 veya 100 sayı yakınsa biraz yüksek-düşük uyarısı
                 if (difference > 0) System.out.println("Tahmininiz biraz düşük!");
                 else System.out.println("Tahmininiz biraz yüksek!");
             }
             else if (difference > 0) System.out.println("Tahmininiz çok düşük!");
-
             else System.out.println("Tahmininiz çok yüksek!");
 
 
