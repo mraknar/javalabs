@@ -15,13 +15,17 @@ public class Main {
             System.out.println("4. Bölme");
             System.out.println("5. Karekök Alma");
             System.out.println("6. Üslü Sayı Hesaplama");
-            System.out.println("7. Sonucu Belleğe Kaydet");
-            System.out.println("8. Belleği Temizle");
+            System.out.println("7. Sonucu Belleğe Kaydet"); //İşlem sonucunu belleğe kaydetme
+            System.out.println("8. Belleği Temizle"); //Belleği sıfırlama
             System.out.println("9. Çıkış");
 
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("İşlem numarası girin: ");
+            if (! scanner.hasNextInt()) { //input integer değilse ana menüye dön
+                System.out.println("Geçersiz işlem, ana menüye dönülüyor.");
+                continue;
+            }
             int operation = scanner.nextInt();
 
             double firstNumber, secondNumber;
@@ -117,16 +121,19 @@ public class Main {
     public static double takeInput(double memory) {
         Scanner scanner = new Scanner(System.in);
 
-        double number;
-        String input = scanner.next(); //input ilk string olarak alınıyor
+        while(true) {
+            String input = scanner.next(); //input ilk string olarak alınıyor
 
-        if (input.equalsIgnoreCase("M")){ //kullanıcı bellekteki değeri mi kullanacak
-            number = memory;
-        }else{
-            number = Double.parseDouble(input); //bellekteki değer kullanılmayacaksa string double'a çeviriliyor.
+            if (input.equalsIgnoreCase("m")) { //kullanıcı bellekteki değeri mi kullanacak
+                return memory;
+            }
+
+            try {
+                return Double.parseDouble(input); //bellekteki değer kullanılmayacaksa string double'a çeviriliyor.
+            } catch (NumberFormatException e) { //eğer geçersiz bir değer girilirse while döngüsü ile tekrar girilmesi istenecek.
+                System.out.println("Geçersiz işlem, tekrar girin.");
+            }
         }
-
-        return number;
     }
 
     // İşlemler
