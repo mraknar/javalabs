@@ -1,6 +1,9 @@
 package com.mraknar.services.impl;
 
+import com.mraknar.dto.UserDto;
+import com.mraknar.dto.UserDtoIU;
 import com.mraknar.entities.User;
+import com.mraknar.mapper.UserMapper;
 import com.mraknar.repository.UserRepository;
 import com.mraknar.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,46 +16,51 @@ import java.util.Optional;
 public class UserServiceImpl implements IUserService {
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository,  UserMapper userMapper) {
         this.userRepository = userRepository;
+        this.userMapper = userMapper;
     }
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDto createUser(UserDtoIU userDtoIU) {
+        User user = userMapper.toEntity(userDtoIU);
+        User savedUser = userRepository.save(user);
+        return  userMapper.toDto(savedUser);
     }
 
     @Override
-    public List<User> getAllUsers(){
-        return userRepository.findAll();
+    public List<UserDto> getAllUsers(){
+        return userMapper.toDto(userRepository.findAll());
     }
 
     @Override
-    public User getUserById(Integer id){
+    public UserDto getUserById(Integer id){
         Optional<User> optional = userRepository.findById(id);
-        return optional.orElse(null);
+        return optional.map(userMapper::toDto).orElse(null);
     }
 
     @Override
     public void deleteUserById(Integer id) {
-        User user = getUserById(id);
+        UserDto user = getUserById(id);
         if(user != null){
             userRepository.deleteById(id);
         }
     }
 
     @Override
-    public User updateUser(Integer id, User updatedUser){
-        User existingUser  = userRepository.findById(id).orElse(null);
+    public UserDto updateUser(Integer id, UserDtoIU updatedUser){
+        User userDb = userRepository.findById(id).orElse(null);
 
-        existingUser.setFirstName(updatedUser.getFirstName());
-        existingUser.setLastName(updatedUser.getLastName());
-        existingUser.setDateOfBirth(updatedUser.getDateOfBirth());
-
-        return userRepository.save(existingUser);
-
+        if(userDb != null){
+            userDb.setFirstName(updatedUser.getFirstName());
+            userDb.setLastName(updatedUser.getLastName());
+            userDb.setDateOfBirth(updatedUser.getDateOfBirth());
+            return userMapper.toDto(userRepository.save(userDb));
+        }
+        return null;
     }
 
 }

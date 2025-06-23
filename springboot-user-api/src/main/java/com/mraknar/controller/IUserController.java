@@ -1,17 +1,19 @@
 package com.mraknar.controller;
 
+import com.mraknar.dto.UserDto;
+import com.mraknar.dto.UserDtoIU;
 import com.mraknar.entities.User;
 
 import java.util.List;
 
 public interface IUserController {
-    public User createUser(User user);
+    public UserDto createUser(UserDtoIU user);
 
-    public List<User> getAllUsers();
+    public List<UserDto> getAllUsers();
 
-    public User getUserById(Integer id);
+    public UserDto getUserById(Integer id);
 
     public void deleteUserById(Integer id);
 
-    public User updateUser(Integer id, User updatedUser);
+    public UserDto updateUser(Integer id, UserDtoIU updatedUser);
 }

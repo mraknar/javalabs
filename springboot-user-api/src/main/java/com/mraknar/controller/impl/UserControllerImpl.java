@@ -1,6 +1,8 @@
 package com.mraknar.controller.impl;
 
 import com.mraknar.controller.IUserController;
+import com.mraknar.dto.UserDto;
+import com.mraknar.dto.UserDtoIU;
 import com.mraknar.entities.User;
 import com.mraknar.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +23,19 @@ public class UserControllerImpl implements IUserController {
 
     @PostMapping("create")
     @Override
-    public User createUser(@RequestBody User user) {
+    public UserDto createUser(@RequestBody UserDtoIU user) {
         return userService.createUser(user);
     }
 
     @GetMapping("/users")
     @Override
-    public List<User> getAllUsers(){
+    public List<UserDto> getAllUsers(){
         return userService.getAllUsers();
     }
 
     @GetMapping("/users/{id}")
     @Override
-    public User getUserById(@PathVariable(name = "id") Integer id){
+    public UserDto getUserById(@PathVariable(name = "id") Integer id){
         return userService.getUserById(id);
     }
 
@@ -45,7 +47,7 @@ public class UserControllerImpl implements IUserController {
 
     @PutMapping("/update/{id}")
     @Override
-    public User updateUser(@PathVariable(name = "id") Integer id, @RequestBody User updatedUser){
+    public UserDto updateUser(@PathVariable(name = "id") Integer id, @RequestBody UserDtoIU updatedUser){
         return userService.updateUser(id, updatedUser);
     }
 }
