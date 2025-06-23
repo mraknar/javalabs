@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -29,6 +30,13 @@ public class UserServiceImpl implements IUserService {
         User user = userMapper.toEntity(userDtoIU);
         User savedUser = userRepository.save(user);
         return  userMapper.toDto(savedUser);
+    }
+
+    @Override
+    public List<UserDto> createUsers(List<UserDtoIU> users){
+        return users.stream()
+                .map(this::createUser)
+                .collect(Collectors.toList());
     }
 
     @Override

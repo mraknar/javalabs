@@ -3,9 +3,10 @@ package com.mraknar.controller.impl;
 import com.mraknar.controller.IUserController;
 import com.mraknar.dto.UserDto;
 import com.mraknar.dto.UserDtoIU;
-import com.mraknar.entities.User;
 import com.mraknar.services.IUserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,12 @@ public class UserControllerImpl implements IUserController {
     @Override
     public UserDto createUser(@RequestBody UserDtoIU user) {
         return userService.createUser(user);
+    }
+
+    @PostMapping("create/bulk")
+    @Override
+    public List<UserDto> createUsers(@RequestBody List<UserDtoIU> users){
+        return userService.createUsers(users);
     }
 
     @GetMapping("/users")

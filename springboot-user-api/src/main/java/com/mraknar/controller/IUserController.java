@@ -2,12 +2,14 @@ package com.mraknar.controller;
 
 import com.mraknar.dto.UserDto;
 import com.mraknar.dto.UserDtoIU;
-import com.mraknar.entities.User;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
 public interface IUserController {
-    public UserDto createUser(UserDtoIU user);
+    public UserDto createUser(@Valid UserDtoIU user);
+
+    public List<UserDto> createUsers(List<@Valid UserDtoIU> users);
 
     public List<UserDto> getAllUsers();
 

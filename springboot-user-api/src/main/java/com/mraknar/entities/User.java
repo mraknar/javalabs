@@ -28,4 +28,10 @@ public class User {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE )
     @Column(name = "date_of_birth", nullable = true)
     private Date dateOfBirth;
+
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Column(name = "password", nullable = false)
+    private String password;
 }

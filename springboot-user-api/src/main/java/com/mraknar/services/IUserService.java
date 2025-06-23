@@ -2,13 +2,14 @@ package com.mraknar.services;
 
 import com.mraknar.dto.UserDto;
 import com.mraknar.dto.UserDtoIU;
-import com.mraknar.entities.User;
 
 import java.util.List;
 
 public interface IUserService {
 
     public UserDto createUser(UserDtoIU user);
+
+    public List<UserDto> createUsers(List<UserDtoIU> users);
 
     public List<UserDto> getAllUsers();
 
