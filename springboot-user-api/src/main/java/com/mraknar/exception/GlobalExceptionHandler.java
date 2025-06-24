@@ -1,17 +1,13 @@
 package com.mraknar.exception;
 
 import com.mraknar.dto.error.ValidationErrorResponse;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -27,12 +23,13 @@ public class GlobalExceptionHandler {
             errorsMap.computeIfAbsent(fieldName, k -> new ArrayList<>()).add(errorMessage);
         });
 
-        ValidationErrorResponse errorResponse = new ValidationErrorResponse(
+        ValidationErrorResponse<Map<String, List<String>>> errorResponse = new ValidationErrorResponse<>(
                 "Validation failed",
-                errorsMap
+                errorsMap,
+                new Date()
         );
 
-        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+        return ResponseEntity.badRequest().body(errorResponse);
 
     }
 }
