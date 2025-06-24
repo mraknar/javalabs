@@ -1,4 +1,4 @@
-package com.mraknar.dto;
+package com.mraknar.dto.user;
 
 import lombok.*;
 

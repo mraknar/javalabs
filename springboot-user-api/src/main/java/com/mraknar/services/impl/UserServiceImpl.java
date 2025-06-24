@@ -1,7 +1,7 @@
 package com.mraknar.services.impl;
 
-import com.mraknar.dto.UserDto;
-import com.mraknar.dto.UserDtoIU;
+import com.mraknar.dto.user.UserDto;
+import com.mraknar.dto.user.UserDtoIU;
 import com.mraknar.entities.User;
 import com.mraknar.mapper.UserMapper;
 import com.mraknar.repository.UserRepository;

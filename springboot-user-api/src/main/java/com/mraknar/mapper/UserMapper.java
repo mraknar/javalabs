@@ -1,7 +1,7 @@
 package com.mraknar.mapper;
 
-import com.mraknar.dto.UserDto;
-import com.mraknar.dto.UserDtoIU;
+import com.mraknar.dto.user.UserDto;
+import com.mraknar.dto.user.UserDtoIU;
 import com.mraknar.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

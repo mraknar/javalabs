@@ -1,9 +1,6 @@
-package com.mraknar.dto;
+package com.mraknar.dto.user;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.util.Date;
@@ -15,18 +12,16 @@ import java.util.Date;
 public class UserDtoIU {
 
     @NotEmpty(message = "First name field can't be empty")
-    @Max(value = 50)
-    @Min(value = 3)
+    @Size(min = 3, max = 50, message = "First name must be between 3 and 50 characters")
     private String firstName;
 
     @NotEmpty(message = "Last name field can't be empty")
-    @Max(value = 50)
-    @Min(value = 3)
+    @Size(min = 3, max = 50, message = "Last name must be between 3 and 50 characters")
     private String lastName;
 
     private Date dateOfBirth;
 
-    @Email
+    @Email(message = "Enter a valid email address")
     private String email;
 
     private String password;

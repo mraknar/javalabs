@@ -1,7 +1,7 @@
 package com.mraknar.services;
 
-import com.mraknar.dto.UserDto;
-import com.mraknar.dto.UserDtoIU;
+import com.mraknar.dto.user.UserDto;
+import com.mraknar.dto.user.UserDtoIU;
 
 import java.util.List;
 

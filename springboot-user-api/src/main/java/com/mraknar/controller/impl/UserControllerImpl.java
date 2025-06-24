@@ -1,12 +1,10 @@
 package com.mraknar.controller.impl;
 
 import com.mraknar.controller.IUserController;
-import com.mraknar.dto.UserDto;
-import com.mraknar.dto.UserDtoIU;
+import com.mraknar.dto.user.UserDto;
+import com.mraknar.dto.user.UserDtoIU;
 import com.mraknar.services.IUserService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
