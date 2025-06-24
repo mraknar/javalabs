@@ -130,6 +130,7 @@ During the development of this project, the following technologies and architect
 | GET    | `/users`           | Retrieve all users        |
 | GET    | `/users/{id}`      | Get a user by ID          |
 | POST   | `/create`          | Create a new user         |
+| POST   | `/create/bulk`     | Create new users          |
 | PUT    | `/update/{id}`     | Update an existing user   |
 | DELETE | `/delete/{id}`     | Delete a user by ID       |
 
