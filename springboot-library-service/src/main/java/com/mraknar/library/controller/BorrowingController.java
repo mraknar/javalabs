@@ -5,7 +5,6 @@ import com.mraknar.library.dto.borrowing.BorrowingResponseDTO;
 import com.mraknar.library.service.BorrowingService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/rest/api")
 public class BorrowingController {
 
-    private BorrowingService borrowingService;
+    private final BorrowingService borrowingService;
 
     @Autowired
     public BorrowingController(BorrowingService borrowingService) {

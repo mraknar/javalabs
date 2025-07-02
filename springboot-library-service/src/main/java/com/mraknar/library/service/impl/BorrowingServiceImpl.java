@@ -8,7 +8,6 @@ import com.mraknar.library.entity.User;
 import com.mraknar.library.exception.BookAlreadyBorrowedException;
 import com.mraknar.library.exception.BookNotFoundException;
 import com.mraknar.library.exception.UserNotFoundException;
-import com.mraknar.library.mapper.BookMapper;
 import com.mraknar.library.mapper.BorrowingMapper;
 import com.mraknar.library.repository.BookRepository;
 import com.mraknar.library.repository.BorrowingRepository;
@@ -24,15 +23,13 @@ public class BorrowingServiceImpl implements BorrowingService {
     private final BookRepository bookRepository;
     private final BorrowingRepository borrowingRepository;
     private final BorrowingMapper borrowingMapper;
-    private final BookMapper bookMapper;
 
     @Autowired
-    public BorrowingServiceImpl(UserRepository userRepository, BookRepository bookRepository, BorrowingRepository borrowingRepository, BorrowingMapper borrowingMapper, BookMapper bookMapper) {
+    public BorrowingServiceImpl(UserRepository userRepository, BookRepository bookRepository, BorrowingRepository borrowingRepository, BorrowingMapper borrowingMapper) {
         this.userRepository = userRepository;
         this.bookRepository = bookRepository;
         this.borrowingRepository = borrowingRepository;
         this.borrowingMapper = borrowingMapper;
-        this.bookMapper = bookMapper;
     }
 
     @Override

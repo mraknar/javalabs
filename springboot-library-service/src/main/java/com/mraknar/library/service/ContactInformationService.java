@@ -5,7 +5,7 @@ import com.mraknar.library.dto.contact.ContactResponseDTO;
 
 public interface ContactInformationService {
 
-    public ContactResponseDTO getContactInformation(String username);
+    ContactResponseDTO getContactInformation(String username);
 
-    public ContactResponseDTO updateContactInformation(String username, ContactRequestDTO dto);
+    ContactResponseDTO updateContactInformation(String username, ContactRequestDTO dto);
 }

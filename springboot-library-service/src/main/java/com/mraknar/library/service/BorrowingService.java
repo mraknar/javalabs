@@ -5,7 +5,7 @@ import com.mraknar.library.dto.borrowing.BorrowingResponseDTO;
 
 public interface BorrowingService {
 
-    public BorrowingResponseDTO createBorrowing(BorrowingRequestDTO dto);
+    BorrowingResponseDTO createBorrowing(BorrowingRequestDTO dto);
 
-    public BorrowingResponseDTO returnBook(Long id);
+    BorrowingResponseDTO returnBook(Long id);
 }

@@ -12,8 +12,6 @@ import com.mraknar.library.repository.UserRepository;
 import com.mraknar.library.service.AddressService;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class AddressServiceImpl implements AddressService {
 

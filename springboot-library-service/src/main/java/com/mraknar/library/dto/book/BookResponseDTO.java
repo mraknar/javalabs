@@ -1,6 +1,5 @@
 package com.mraknar.library.dto.book;
 
-import com.mraknar.library.entity.Borrowing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,11 +1,6 @@
 package com.mraknar.library.dto.book;
 
 
-import com.mraknar.library.entity.Borrowing;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

@@ -2,7 +2,6 @@ package com.mraknar.library.controller;
 
 import com.mraknar.library.dto.book.BookRequestDTO;
 import com.mraknar.library.dto.book.BookResponseDTO;
-import com.mraknar.library.entity.Book;
 import com.mraknar.library.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
