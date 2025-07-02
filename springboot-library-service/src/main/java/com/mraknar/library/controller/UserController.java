@@ -19,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/user/create")
     public UserResponseDTO createUser(@RequestBody @Valid UserRequestDTO userRequestDTO){
         return userService.createUser(userRequestDTO);
     }
