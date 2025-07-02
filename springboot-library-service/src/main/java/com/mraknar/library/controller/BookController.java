@@ -4,6 +4,7 @@ import com.mraknar.library.dto.book.BookRequestDTO;
 import com.mraknar.library.dto.book.BookResponseDTO;
 import com.mraknar.library.entity.Book;
 import com.mraknar.library.service.BookService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class BookController {
     }
 
     @PostMapping("/create")
-    public BookResponseDTO createBook(@RequestBody BookRequestDTO book) {
+    public BookResponseDTO createBook(@RequestBody @Valid BookRequestDTO book) {
         return bookService.createBook(book);
     }
 

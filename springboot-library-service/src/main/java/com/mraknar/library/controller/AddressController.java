@@ -3,6 +3,7 @@ package com.mraknar.library.controller;
 import com.mraknar.library.dto.address.AddressRequestDTO;
 import com.mraknar.library.dto.address.AddressResponseDTO;
 import com.mraknar.library.service.AddressService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class AddressController {
     }
 
     @PutMapping("/update/{username}")
-    public ResponseEntity<AddressResponseDTO> updateAddress(@PathVariable String username, @RequestBody AddressRequestDTO dto){
+    public ResponseEntity<AddressResponseDTO> updateAddress(@PathVariable String username, @RequestBody @Valid AddressRequestDTO dto){
         return ResponseEntity.ok(addressService.updateAddress(username, dto));
     }
 }

@@ -3,6 +3,7 @@ package com.mraknar.library.controller;
 import com.mraknar.library.dto.borrowing.BorrowingRequestDTO;
 import com.mraknar.library.dto.borrowing.BorrowingResponseDTO;
 import com.mraknar.library.service.BorrowingService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class BorrowingController {
     }
 
     @PostMapping("/borrow")
-    public ResponseEntity<BorrowingResponseDTO> createBorrowing(@RequestBody BorrowingRequestDTO dto) {
+    public ResponseEntity<BorrowingResponseDTO> createBorrowing(@RequestBody @Valid BorrowingRequestDTO dto) {
         return ResponseEntity.ok(borrowingService.createBorrowing(dto));
     }
 

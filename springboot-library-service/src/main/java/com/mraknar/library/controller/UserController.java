@@ -3,6 +3,7 @@ package com.mraknar.library.controller;
 import com.mraknar.library.dto.user.UserRequestDTO;
 import com.mraknar.library.dto.user.UserResponseDTO;
 import com.mraknar.library.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public UserResponseDTO createUser(@RequestBody UserRequestDTO userRequestDTO){
+    public UserResponseDTO createUser(@RequestBody @Valid UserRequestDTO userRequestDTO){
         return userService.createUser(userRequestDTO);
     }
 

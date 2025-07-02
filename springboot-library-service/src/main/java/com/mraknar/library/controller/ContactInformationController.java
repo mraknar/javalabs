@@ -3,6 +3,7 @@ package com.mraknar.library.controller;
 import com.mraknar.library.dto.contact.ContactRequestDTO;
 import com.mraknar.library.dto.contact.ContactResponseDTO;
 import com.mraknar.library.service.ContactInformationService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class ContactInformationController {
     }
 
     @PutMapping("/update/{username}")
-    public ResponseEntity<ContactResponseDTO> updateContactInformation(@PathVariable String username, @RequestBody ContactRequestDTO dto){
+    public ResponseEntity<ContactResponseDTO> updateContactInformation(@PathVariable String username, @RequestBody @Valid ContactRequestDTO dto){
         return ResponseEntity.ok(contactInformationService.updateContactInformation(username, dto));
     }
 }
